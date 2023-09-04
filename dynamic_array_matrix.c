@@ -32,8 +32,6 @@ void insertElement(Matrix *matrix, int value) {
     if (matrix->lastElement < matrix->data + matrix->rows * matrix->cols) {
         *(matrix->lastElement) = value; // Insere o valor na posição apontada pelo ponteiro
         matrix->lastElement++; // Avança o ponteiro para a próxima posição disponível
-    } else {
-        printf("Matrix is full\n");
     }
 }
 
@@ -44,6 +42,10 @@ void printMatrix(Matrix *matrix) {
         }
         printf("\n");
     }
+}
+
+void freeMatrix(Matrix *matrix) {
+    free(matrix->data);
 }
 /*
 1 2 3
